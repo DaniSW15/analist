@@ -23,25 +23,69 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+API GraphQL construida con NestJS que implementa un sistema de autenticación JWT y gestión de usuarios. El proyecto utiliza:
 
-## Project setup
+- NestJS como framework backend
+- GraphQL para las APIs
+- TypeORM para la gestión de base de datos
+- JWT para la autenticación
+- bcrypt para el hash de contraseñas
 
+## Configuración del Proyecto
+
+1. Clonar el repositorio
+2. Instalar dependencias:
 ```bash
 $ npm install
 ```
 
-## Compile and run the project
+3. Crear archivo `.env` en la raíz del proyecto con las siguientes variables:
+```
+JWT_SECRET=tu_secreto_jwt_aqui
+```
+
+4. Configurar la base de datos en `src/config/database.config.ts`
+
+## Ejecutar el proyecto
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
+# desarrollo
 $ npm run start:dev
 
-# production mode
+# producción
 $ npm run start:prod
+```
+
+La API GraphQL estará disponible en: http://localhost:3000/graphql
+
+## Funcionalidades Principales
+
+- Autenticación de usuarios mediante JWT
+- Registro de nuevos usuarios
+- Login de usuarios
+- Validación de tokens
+- Gestión de roles de usuario
+- Encriptación de contraseñas con bcrypt
+
+## Endpoints GraphQL
+
+### Mutations
+- `signUp`: Registro de nuevos usuarios
+- `login`: Autenticación de usuarios
+- `updateUser`: Actualización de datos de usuario
+
+### Queries
+- `revalidate`: Revalidación del token JWT
+- `user`: Obtener información de un usuario
+
+## Estructura del Proyecto
+
+```
+src/
+├── auth/           # Autenticación y autorización
+├── users/          # Gestión de usuarios
+├── config/         # Configuraciones
+└── common/         # Utilidades compartidas
 ```
 
 ## Run tests
